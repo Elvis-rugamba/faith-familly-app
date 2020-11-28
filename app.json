@@ -1,14 +1,20 @@
 {
   "expo": {
-    "name": "faith-familly-app",
-    "slug": "faith-familly-app",
+    "name": "Abba Gospel",
+    "slug": "abba-gospel",
     "version": "1.0.0",
     "orientation": "portrait",
+    "primaryColor": "#032A63",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/logo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#032A63"
+    },
+    "androidStatusBar": {
+      "backgroundColor": "#032A63",
+      "barStyle": "light-content",
+      "translucent": false
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -17,10 +23,14 @@
       "**/*"
     ],
     "ios": {
+      "infoPlist": {
+        "CFBundleAllowMixedLocalizations": true
+      },
       "supportsTablet": true
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/icon.png"
+    },
+    "description": "Find news, gospel, your favorite music and TV shows. Abba Gospel provides you with the latest breaking news and videos straight from the gospel industry."
   }
 }

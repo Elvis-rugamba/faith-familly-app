@@ -1,30 +1,38 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, Platform } from 'react-native';
+import { StyleSheet, TouchableOpacity, Platform, Image } from 'react-native';
+import moment from 'moment';
 
 import Block from '../Block';
 import Text from '../Text';
 import theme from '../../constants/theme';
 
-const NewsCard = ({ title, caption, onPress, style }) => {
+const NewsCard = ({ item, onPress, style }) => {
   const cardStyles = [styles.card, style && style];
 
   return (
     <TouchableOpacity activeOpacity={0.8} onPress={() => onPress()}>
       <Block row style={cardStyles}>
-        <Block style={styles.newsImageBlock} />
+        <Block style={styles.newsImageBlock}>
+          <Image
+            style={styles.newsImage}
+            source={{ uri: item.image }}
+            resizeMethod="resize"
+          />
+        </Block>
         <Block flex={1} style={styles.newsContentBlock}>
           <Text
             subtitle1
             color={theme.COLORS.BLACK}
             style={styles.newsHeading}
             numberOfLines={2}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            {item.title}
           </Text>
           <Text
             caption
             color={theme.COLORS.SECONDARY}
             style={styles.newsCaption}>
-            Gospel - 1m ago
+            {item.category} -{' '}
+            {moment(item.created_at).format('YYYY-MM-DD HH:mm:ss')}
           </Text>
         </Block>
       </Block>
@@ -58,8 +66,13 @@ const styles = StyleSheet.create({
     height: 78,
     borderRadius: 4,
     backgroundColor: theme.COLORS.PLACEHOLDER,
-    borderColor: theme.COLORS.PRIMARY,
+    borderColor: theme.COLORS.SECONDARY,
     borderWidth: 1,
+  },
+  newsImage: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'stretch',
   },
   newsContentBlock: {
     paddingLeft: 16,
