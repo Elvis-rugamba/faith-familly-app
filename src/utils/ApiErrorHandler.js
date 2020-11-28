@@ -1,4 +1,4 @@
-const selectErrorCode = error => {
+const selectErrorCode = (error) => {
   if (error && error.response) {
     return Number(error.response.status);
   }
@@ -10,9 +10,9 @@ const selectErrorCode = error => {
   return 500;
 };
 
-const selectErrorMessage = error => {
+const selectErrorMessage = (error) => {
   if (error && error.response) {
-    return error.response.data.error;
+    return error.response.data.error || error.response.data.message;
   }
 
   if (error && error.request) {

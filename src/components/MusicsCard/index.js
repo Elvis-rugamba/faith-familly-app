@@ -1,17 +1,23 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 import Block from '../Block';
 import Text from '../Text';
 import theme from '../../constants/theme';
 
-const MusicsCard = ({ title, caption, onPress, style }) => {
+const MusicsCard = ({ item, onPress, style }) => {
   const cardStyles = [styles.card, style && style];
 
   return (
     <TouchableOpacity activeOpacity={0.8} onPress={() => onPress()}>
       <Block row style={cardStyles}>
-        <Block style={styles.musicsImageBlock}></Block>
+        <Block style={styles.musicsImageBlock}>
+          <Image
+            style={styles.musicsImage}
+            source={{ uri: item.cover }}
+            resizeMethod="resize"
+          />
+        </Block>
         <Block flex={1} style={styles.musicsContentBlock}>
           <Text
             subtitle1
@@ -19,19 +25,19 @@ const MusicsCard = ({ title, caption, onPress, style }) => {
             color={theme.COLORS.BLACK}
             style={styles.musicsHeading}
             numberOfLines={1}>
-            Song name
+            {item.name}
           </Text>
           <Text
             caption
             color={theme.COLORS.SECONDARY_TEXT}
             style={styles.musicsCaption}>
-            Artist name
+            {item.artist}
           </Text>
         </Block>
         <Block style={styles.musicsTimeBlock}>
-          <Text caption color={theme.COLORS.BLACK} style={styles.musicsTime}>
+          {/* <Text caption color={theme.COLORS.BLACK} style={styles.musicsTime}>
             03:05
-          </Text>
+          </Text> */}
         </Block>
       </Block>
     </TouchableOpacity>
@@ -50,9 +56,13 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 50,
-    backgroundColor: theme.COLORS.PLACEHOLDER,
-    borderColor: theme.COLORS.PRIMARY,
+    borderColor: theme.COLORS.MUTED,
     borderWidth: 1,
+  },
+  musicsImage: {
+    width: 'auto',
+    height: '100%',
+    borderRadius: 50,
   },
   musicsContentBlock: {
     paddingLeft: 16,

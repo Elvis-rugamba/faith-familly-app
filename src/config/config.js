@@ -1,11 +1,8 @@
-// import { API_URL, GOOGLE_MAPS_APIKEY, PUBNUB_PUBLISH_KEY, PUBNUB_SUBSCRIBE_KEY, HOST_URL } from 'react-native-dotenv';
+import { API_URL, HOST_URL } from '@env';
 
-// const config = {
-//   hostUrl: HOST_URL,
-//   apiUrl: API_URL,
-//   googleMapsApiKey: GOOGLE_MAPS_APIKEY,
-//   pubnubPublishKey: PUBNUB_PUBLISH_KEY,
-//   pubnubSubscribeKey: PUBNUB_SUBSCRIBE_KEY,
-// };
+const config = {
+  apiUrl: API_URL,
+  hostUrl: HOST_URL,
+};
 
-// export default config;
+export default config;
