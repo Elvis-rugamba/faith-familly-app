@@ -22,15 +22,23 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "android": {
+      "package": "com.abbagospel",
+      "versionCode": 1
+    },
     "ios": {
       "infoPlist": {
         "CFBundleAllowMixedLocalizations": true
       },
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.abbagospel",
+      "buildNumber": "1.0.0"
     },
     "web": {
       "favicon": "./assets/icon.png"
     },
     "description": "Find news, gospel, your favorite music and TV shows. Abba Gospel provides you with the latest breaking news and videos straight from the gospel industry."
-  }
+  },
+  "privacy": "public",
+  "scheme": "abbagospel"
 }
